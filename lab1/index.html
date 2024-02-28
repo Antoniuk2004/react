@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab1</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="spinner" id="spinner"></div>
+<div class="canvas">
+    <div class="top-sides">
+        <div class="left-side side-element">
+            <img class="logo" src="./images/logo_short.png" alt="monobank">
+            <div class="avatar">
+                <div class="jar-container">
+                    <img class="jar-background" src="./images/jar_bg.png" alt="jar-background">
+                    <div class="jar">
+                        <img id="jar-img" class="jar-img" src="" alt="jar">
+                        <div class="grid-container">
+                            <img class="grid-img" src="./images/grid.png" alt="grid">
+                            <span class="grid-label top-grid-value">10</span>
+                            <span class="grid-label middle-grid-value">5</span>
+                            <span class="grid-label bottom-grid-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owner-data-container">
+                <span id="owner-data"></span>
+            </div>
+            <div class="title-container">
+                <span id="title"></span>
+            </div>
+            <div class="description-container"></div>
+            <div class="jar-stats">
+                <div class="stats-data">
+                    <img src="./images/collected.svg" alt="">
+                    <div class="stats-data-container">
+                        <span class="stats-data-label">Зібрано</span>
+                        <span class="stats-data-value" id="accumulated">123</span>
+                    </div>
+                </div>
+                <div class="stats-data">
+                    <img src="./images/target.svg" alt="">
+                    <div class="stats-data-container">
+                        <span class="stats-data-label">Ціль</span>
+                        <span class="stats-data-value" id="goal">&nbsp;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-side side-element">
+            <div class="gradient-container">
+                <div class="gradient-content">
+                    <div class="input-title-container">
+                        <span>Сума поповнення</span>
+                        <img src="./images/money.png" alt="money">
+                    </div>
+                    <div class="input-container">
+                        <div class="money-input"
+                             onkeypress="handleMoneyInputKeyPress(event)"
+                             oninput="handleMoneyInputDataInput(event)"
+                             id="money-input"
+                             contenteditable="true">0
+                        </div>
+                        <span class="input-currency">&nbsp;₴</span>
+                    </div>
+                    <div class="money-buttons">
+                        <button
+                                onclick="handleAddMoneyButtonClick(event)"
+                                class="add-money-button"
+                                id="100uah-button">+100&nbsp;₴
+                        </button>
+                        <button
+                                onclick="handleAddMoneyButtonClick(event)"
+                                class="add-money-button"
+                                id="500uah-button">+500&nbsp;₴
+                        </button>
+                        <button
+                                onclick="handleAddMoneyButtonClick(event)"
+                                class="add-money-button"
+                                id="1000uah-button">+1000&nbsp;₴
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-input-container">
+                <input
+                        onblur="handleInputBlur(event)"
+                        onfocus="handleInputFocus(event)"
+                        oninput="handleTextInput(event)"
+                        type="text"
+                        class="payment-input"
+                        id="card-holder">
+                <label for="card-holder" class="input-placeholder">ваше ім'я (необов'язково)</label>
+            </div>
+            <div class="payment-input-container">
+                <input
+                        onblur="handleInputBlur(event)"
+                        onfocus="handleInputFocus(event)"
+                        oninput="handleTextInput(event)"
+                        type="text"
+                        class="payment-input"
+                        id="payment-comment">
+                <label for="payment-comment" class="input-placeholder">коментар (необов'язково)</label>
+            </div>
+            <div onclick="handlePayButtonClick(event)" id="mono-pay" class="mono-pay-container">
+                <img class="payment-logo" src="./images/mono_pay.svg" alt="mono-pay">
+            </div>
+            <div onclick="handlePayButtonClick(event)" id="google-pay" class="google-pay-container">
+                <img class="payment-logo" src="./images/google_pay.svg" alt="google-pay">
+            </div>
+            <div class="card-container">
+                <div class="separator">
+                    <div class="separator-label">
+                        <span>або введіть дані карти</span>
+                    </div>
+                </div>
+                <div class="card-input-button">
+                    <img onclick="handleCardInputButtonClick(event)" class="card-img" src="./images/card.svg"
+                         alt="card">
+                    <span onclick="handleCardInputButtonClick(event)">оплатити картою</span>
+                </div>
+                <div class="card-payment-container">
+                    <div class="payment-input-container bottom">
+                        <input
+                                onblur="handleInputBlur(event)"
+                                onfocus="handleInputFocus(event)"
+                                oninput="handleCardNumberInput(event)"
+                                class="payment-input bottom"
+                                id="card-number">
+                        <label for="card-number" class="input-placeholder">номер карти</label>
+                    </div>
+                    <div class="payment-input-container">
+                        <div class="card-input-container">
+                            <input
+                                    onblur="handleInputBlur(event)"
+                                    onfocus="handleInputFocus(event)"
+                                    oninput="handleCardInfoInput(event)"
+                                    type="text"
+                                    class="payment-input card-data-input bottom"
+                                    id="card-data-1">
+                            <label id="for-card-data-1" for="card-data-1" class="input-placeholder">місяць</label>
+                        </div>
+                        <div class="card-input-container">
+                            <input
+                                    onblur="handleInputBlur(event)"
+                                    onfocus="handleInputFocus(event)"
+                                    oninput="handleCardInfoInput(event)"
+                                    type="text"
+                                    class="payment-input card-data-input bottom"
+                                    id="card-data-2">
+                            <label id="for-card-data-2" for="card-data-2" class="input-placeholder year">рік</label>
+                        </div>
+                        <div class="card-input-container">
+                            <input
+                                    onblur="handleInputBlur(event)"
+                                    onfocus="handleInputFocus(event)"
+                                    oninput="handleCardInfoInput(event)"
+                                    type="text"
+                                    class="payment-input card-data-input"
+                                    id="card-data-3">
+                            <label id="for-card-data-3" for="card-data-3" class="input-placeholder cvc2">CVC2</label>
+                        </div>
+                    </div>
+                    <button onclick="handlePayButtonClick(event)" class="card-payment-button">поповнити банку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-holder">
+        <div class="footer-copyright">
+            <span>АТ "УНІВЕРСАЛ БАНК" Ліцензія НБУ №92 від</span>
+            <br>
+            <span>20.01.1994, у держреєстрі банків №226</span>
+        </div>
+        <div class="button-holder">
+            <button class="widget-button">
+                <img src="./images/cup.svg" alt="cup">
+                <span>Провести розіграш</span>
+            </button>
+            <button class="widget-button">
+                <img src="./images/gamepad.svg" alt="gamepad">
+                <span>Віджет для стрімів</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="./scripts/data.js"></script>
+<script src="scripts/helpers.js"></script>
+<script src="./scripts/handlers.js"></script>
+<script src="./scripts/transaction.js"></script>
+
+</body>
+
+</html>

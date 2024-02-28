@@ -1,0 +1,17 @@
+.spinner {
+    top: calc(50% - 50px);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 6px solid rgba(95,95,217,.2);
+    border-left: 6px solid #5F5FD9;
+    animation: rotate 1s linear infinite;
+    border-radius: 999px;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
