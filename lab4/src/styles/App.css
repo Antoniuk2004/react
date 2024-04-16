@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.custom-date-input input[type="date"]::-webkit-calendar-picker-indicator {
+    /* Hide the default browser calendar icon */
+    display: none;
+}
+
+input[type=date] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/833/833593.png'); /* Set your custom icon image */
+    background-size: 24px 24px; /* Adjust icon size as needed */
+    background-repeat: no-repeat;
+    background-position: right center; /* Adjust icon position */
+    padding-right: 30px; /* Reserve space for the icon */
+}
+
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+    width: 0.33rem;
+    border-radius: 1rem;
+    height: 3rem;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.4);
+}

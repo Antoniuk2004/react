@@ -1,0 +1,51 @@
+.react-date-picker__wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    border-width: 0 !important;
+    border-bottom-width: 1px !important;
+    border-bottom-color: rgb(226, 228, 229) !important;
+    height: 2.75rem;
+}
+
+.react-date-picker__inputGroup__input:focus {
+    outline: none !important;
+}
+
+.react-date-picker__inputGroup__input:invalid {
+    background: transparent !important;
+}
+
+
+.react-date-picker__calendar {
+    width: 100% !important;
+}
+
+.react-calendar {
+    width: 100% !important;
+    border-color: rgb(226, 228, 229) !important;
+    border-radius: 0.25rem !important;
+    margin-top: 0.25rem !important;
+}
+
+.react-date-picker__calendar-button, .react-date-picker__button {
+    width: 1.5rem !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    color: #242426 !important;
+}
+
+.react-date-picker__inputGroup {
+    padding: 8px 16px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 28px !important;
+}
+
+input[name="year"] {
+    width: fit-content !important;
+}
